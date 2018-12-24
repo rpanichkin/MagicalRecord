@@ -31,6 +31,13 @@
 + (MR_nonnull NSManagedObjectContext *) MR_rootSavingContext;
 
 /**
+ Only for TESTING. Root context responsible for sending changes to the main persistent store coordinator that will be saved to disk.
+ 
+ @discussion Use this method and set this context manually only for TESTING. The framework is originally designed to have read-only MR_rootSavingContext
+ */
++ (void)MR_setRootSavingContext:(NSManagedObjectContext *)context;
+
+/**
  @discussion Please do not use this context for saving changes, as it will block the main thread when doing so.
 
  @return Main queue context that can be observed for changes
